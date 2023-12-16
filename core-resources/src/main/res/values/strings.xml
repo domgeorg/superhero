@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_squad">My Squad</string>
+    <string name="try_again">Try again</string>
+    <string name="home_screen_title">Superhero Squad Maker</string>
+    <string name="default_error_title">Oops, something went wrong</string>
+    <string name="add_hero">💪 Hire to squad</string>
+    <string name="remove_hero">🔥 Fire from squad</string>
+    <string name="error_network">Network error. Please check your internet connection and try again.</string>
+    <string name="error_not_found">Resource not found. Please try again later.</string>
+    <string name="error_not_authorized">Not authorized. Please log in and try again.</string>
+    <string name="error_service_unavailable">Service temporarily unavailable. Please try again later.</string>
+    <string name="error_service_not_working">Service is not working. Please try again later.</string>
+    <string name="error_unknown">An unknown error occurred. Please try again later.</string>
+    <string name="dialog_remove_from_squad_message">Are you sure you want to remove this hero from your squad?</string>
+    <string name="dialog_remove_from_squad_button">Remove</string>
+    <string name="dialog_error_ok_button">OK</string>
+    <string name="dialog_error_message">Unable to change the membership of the hero.</string>
+</resources>

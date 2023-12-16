@@ -1,0 +1,1 @@
+C:\Users\domge\Documents\git\superhero\buildSrc\build\classes\kotlin\main\ProjectConfiguration.class
