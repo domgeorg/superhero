@@ -12,3 +12,13 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.android.library) apply false
 }
+
+task("addPrePushGitHookOnBuild") {
+    doLast {
+        println("⚈ ⚈ ⚈ Running Add Pre Commit Git Hook Script on Build ⚈ ⚈ ⚈")
+        exec {
+            commandLine("cmd", "/c", "copy", "./.scripts/pre-push", "./.git/hooks")
+        }
+        println("✅ Added Pre Push Git Hook Script.")
+    }
+}
