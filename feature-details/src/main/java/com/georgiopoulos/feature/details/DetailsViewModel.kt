@@ -20,18 +20,18 @@ class DetailsViewModel @Inject constructor(
     private val mutableUiState = MutableStateFlow(SuperHeroDetailsUiState())
     val uiState = mutableUiState.asStateFlow()
 
-    private val superHero: SuperHeroModel by lazy {
-        detailsRepository.getSuperHero() ?: throw IllegalStateException("SuperHero is null")
-    }
+    private lateinit var superHero: SuperHeroModel
 
     init {
-        renderInitialState()
-        checkSquadMembership()
+        triggerEvent(DetailsEvent.RenderSuperHero)
+        triggerEvent(DetailsEvent.CheckSquadMembership)
     }
 
 
     fun triggerEvent(event: DetailsEvent) {
         when (event) {
+            DetailsEvent.RenderSuperHero -> renderSuperHero()
+            DetailsEvent.CheckSquadMembership -> checkSquadMembership()
             DetailsEvent.AddInSquad -> addToSquad()
             DetailsEvent.RemoveFromSquad -> removeFromSquad()
             is DetailsEvent.RemoveFromSquadIntention -> removeFromSquadIntention(
@@ -40,6 +40,15 @@ class DetailsViewModel @Inject constructor(
 
             DetailsEvent.DismissError -> dismissError()
         }
+    }
+
+    private fun renderSuperHero() {
+        superHero = detailsRepository.getSuperHero() ?: throw IllegalStateException("SuperHero is null")
+        mutableUiState.update { previousUiState ->
+            previousUiState.copy(superHero = superHero)
+        }
+
+        detailsRepository.clearSuperHeroData()
     }
 
     private fun checkSquadMembership() {
@@ -125,14 +134,5 @@ class DetailsViewModel @Inject constructor(
                 displayErrorDialog = false,
             )
         }
-    }
-
-    private fun renderInitialState() {
-        mutableUiState.update { previousUiState ->
-            previousUiState.copy(
-                superHero = superHero,
-            )
-        }
-        detailsRepository.clearSuperHeroData()
     }
 }

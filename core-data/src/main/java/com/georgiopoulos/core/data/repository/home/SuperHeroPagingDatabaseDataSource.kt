@@ -8,9 +8,6 @@ import com.georgiopoulos.core.database.mapper.SuperHeroEntityMapper
 import com.georgiopoulos.core.model.error.ErrorModel
 import com.georgiopoulos.core.model.error.PaginationException
 import com.georgiopoulos.core.model.superhero.SuperHeroModel
-import kotlinx.coroutines.isActive
-import kotlin.coroutines.cancellation.CancellationException
-import kotlin.coroutines.coroutineContext
 
 /**
  * A {@link PagingSource} implementation responsible for loading paginated data from a local database
@@ -65,14 +62,10 @@ internal class SuperHeroPagingDatabaseDataSource(
                 nextKey = if (superHeroList.isEmpty()) null else page.plus(1),
             )
         } catch (exception: Exception) {
-            if (coroutineContext.isActive) {
-                LoadResult.Error(
-                    throwable = PaginationException(
-                        errorModel = ErrorModel.UnknownErrorModel,
-                    ),
-                )
-            } else {
-                LoadResult.Error(throwable = CancellationException())
-            }
+            LoadResult.Error(
+                throwable = PaginationException(
+                    errorModel = ErrorModel.UnknownErrorModel,
+                ),
+            )
         }
 }

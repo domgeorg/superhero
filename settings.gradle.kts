@@ -1,4 +1,7 @@
 @file:Suppress("UnstableApiUsage")
+
+
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -24,6 +27,6 @@ include(":core-resources")
 include(":core-data")
 include(":core-database")
 include(":core-design-system")
+include(":core-preferences")
 include(":feature-home")
 include(":feature-details")
-include(":core-preferences")

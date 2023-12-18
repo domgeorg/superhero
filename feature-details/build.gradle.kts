@@ -16,6 +16,13 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            isReturnDefaultValues = true
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -55,5 +62,8 @@ dependencies {
     implementation(libs.coil.base)
     implementation(libs.coil.compose)
     testImplementation(libs.junit)
+    implementation(libs.mockk)
+    implementation(libs.coroutines.test)
+    implementation(libs.androidx.arch.core)
     androidTestImplementation(libs.androidx.test.ext.junit)
 }

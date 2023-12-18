@@ -50,5 +50,7 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.paging.common)
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
+    implementation(libs.mockk)
+    implementation(libs.coroutines.test)
+    implementation(libs.androidx.arch.core)
 }

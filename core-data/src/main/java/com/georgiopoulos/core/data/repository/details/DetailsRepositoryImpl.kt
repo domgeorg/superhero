@@ -41,7 +41,6 @@ internal class DetailsRepositoryImpl @Inject constructor(
         superHeroDataSource.retrieve()
 
     override fun clearSuperHeroData() {
-        superHeroDataSource.retrieve()
+        superHeroDataSource.remove()
     }
-
 }

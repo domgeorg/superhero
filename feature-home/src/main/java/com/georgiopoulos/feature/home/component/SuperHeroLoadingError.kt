@@ -39,8 +39,7 @@ internal fun SuperHeroLoadingError(
 
         DesignSystemText(
             modifier = Modifier
-                .padding(DesignSystemTheme.spacings.spacing12)
-                .align(Alignment.CenterHorizontally),
+                .padding(DesignSystemTheme.spacings.spacing12),
             text = stringResource(id = Resources.string.default_error_title),
             style = DesignSystemStyle.DARK,
             textType = TextType.TITLE_2,
@@ -48,8 +47,7 @@ internal fun SuperHeroLoadingError(
 
         DesignSystemText(
             modifier = Modifier
-                .padding(DesignSystemTheme.spacings.spacing12)
-                .align(Alignment.CenterHorizontally),
+                .padding(DesignSystemTheme.spacings.spacing12),
             text = stringResource(id = messageResId),
         )
 

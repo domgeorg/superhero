@@ -8,9 +8,6 @@ import com.georgiopoulos.core.model.superhero.SuperHeroModel
 import com.georgiopoulos.core.network.mapper.error.ErrorMapper
 import com.georgiopoulos.core.network.mapper.heros.SuperHeroMapper
 import com.georgiopoulos.core.network.service.Service
-import kotlinx.coroutines.isActive
-import kotlin.coroutines.cancellation.CancellationException
-import kotlin.coroutines.coroutineContext
 
 /**
  * Paging source for loading superhero data from a network service using the Paging library.
@@ -27,8 +24,6 @@ internal class SuperHeroPagingNetworkDataSource(
     private val superHeroMapper: SuperHeroMapper,
     private val errorMapper: ErrorMapper,
 ) : PagingSource<Int, SuperHeroModel>() {
-
-    var counter = 0
 
     /**
      * Returns the refresh key for the given [PagingState].
@@ -61,14 +56,10 @@ internal class SuperHeroPagingNetworkDataSource(
                 nextKey = if (response.data.results.isEmpty()) null else page.plus(1),
             )
         } catch (exception: Exception) {
-            if (coroutineContext.isActive) {
-                LoadResult.Error(
-                    throwable = PaginationException(
-                        errorModel = errorMapper.mapError(exception),
-                    ),
-                )
-            } else {
-                LoadResult.Error(throwable = CancellationException())
-            }
+            LoadResult.Error(
+                throwable = PaginationException(
+                    errorModel = errorMapper.mapError(exception),
+                ),
+            )
         }
 }

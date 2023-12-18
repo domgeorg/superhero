@@ -48,5 +48,5 @@ dependencies {
     ksp(libs.moshi.codegen)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-    implementation(libs.timber)
+    testImplementation(libs.junit)
 }
