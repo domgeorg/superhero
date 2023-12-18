@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -44,7 +44,7 @@ fun MySquad(
         Loading -> DesignSystemLoader(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(DesignSystemTheme.spacings.spacing120),
+                .height(DesignSystemTheme.spacings.spacing124),
         )
 
         is NotLoading -> { /* Do nothing */
@@ -84,7 +84,8 @@ fun MySquad(
                 is Loading -> item {
                     DesignSystemLoader(
                         modifier = Modifier
-                            .size(DesignSystemTheme.spacings.spacing120),
+                            .height(DesignSystemTheme.spacings.spacing124)
+                            .width(DesignSystemTheme.spacings.spacing112)
                     )
                 }
 

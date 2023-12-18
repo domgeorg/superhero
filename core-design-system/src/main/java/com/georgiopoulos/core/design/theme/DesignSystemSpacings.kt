@@ -22,5 +22,6 @@ data class DesignSystemSpacings internal constructor(
     val spacing88: Dp = 88.dp,
     val spacing96: Dp = 96.dp,
     val spacing104: Dp = 104.dp,
-    val spacing120: Dp = 120.dp,
+    val spacing112: Dp = 112.dp,
+    val spacing124: Dp = 124.dp,
 )
