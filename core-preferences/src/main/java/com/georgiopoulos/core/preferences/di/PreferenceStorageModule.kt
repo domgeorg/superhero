@@ -10,7 +10,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal interface PreferencesModule {
+internal interface PreferenceStorageModule {
 
     @Binds
     fun bindsPreferenceDataStore(

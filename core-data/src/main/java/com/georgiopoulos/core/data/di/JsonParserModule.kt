@@ -9,7 +9,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object MoshiModule {
+internal object JsonParserModule {
 
     @Singleton
     @Provides

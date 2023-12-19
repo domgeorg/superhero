@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-internal object DataStoreModule {
+internal object SharedPreferencesModule {
 
     @Provides
     @Singleton

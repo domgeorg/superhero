@@ -21,7 +21,6 @@ fun NavGraphBuilder.superHeroNavigation(
     }
     composable(
         route = SuperHeroScreens.Details.name,
-        arguments = SuperHeroScreens.Details.navArguments,
     ) {
         DetailsScreen(composeNavigator = composeNavigator)
     }
