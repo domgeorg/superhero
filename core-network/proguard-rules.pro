@@ -19,3 +19,14 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Keep the generated JSON adapter classes
+-keep class com.georgiopoulos.core.network.response.** { *; }
+
+# Keep the fields of the annotated classes
+-keepclassmembers class com.georgiopoulos.core.network.response.** {
+    @com.squareup.moshi.* <fields>;
+}
+
+# Keep the names of the classes and fields used in JSON serialization/deserialization
+-keepattributes *Annotation*, EnclosingMethod

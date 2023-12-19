@@ -13,12 +13,14 @@ plugins {
     alias(libs.plugins.android.library) apply false
 }
 
-task("addPrePushGitHookOnBuild") {
+tasks.register("moveHookFile") {
     doLast {
-        println("⚈ ⚈ ⚈ Running Add Pre Commit Git Hook Script on Build ⚈ ⚈ ⚈")
-        exec {
-            commandLine("cmd", "/c", "copy", "./.scripts/pre-push", "./.git/hooks")
+        val sourceFile = file(".scripts/pre-push")
+        val destinationDir = file(".git/hooks")
+
+        copy {
+            from(sourceFile)
+            into(destinationDir)
         }
-        println("✅ Added Pre Push Git Hook Script.")
     }
 }

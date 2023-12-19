@@ -18,7 +18,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -46,7 +46,6 @@ dependencies {
     implementation(libs.moshi)
     implementation(libs.timber)
     implementation(libs.hilt.android)
-    implementation(libs.datastore)
     ksp(libs.hilt.compiler)
     implementation(libs.paging.common)
     testImplementation(libs.junit)
